@@ -3,7 +3,7 @@ export const toggleTheme = () => ({
     payload: null
 })
 
-export const switchCurrentResource = (resource: string) => ({
+export const switchCurrentResource = (resourceId: string) => ({
     type: "SWITCH_CURRENT_RESOURCE",
-    payload: resource
+    payload: resourceId
 })

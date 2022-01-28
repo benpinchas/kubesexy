@@ -8,7 +8,7 @@ export default (state = initState, action) => {
         case 'TOGGLE_THEME':
             return { ...state, theme: state.theme == "LIGHT"? "DARK" : "LIGHT" }
         case 'SWITCH_CURRENT_RESOURCE':
-            return { ...state, selectedResource: action.payload }
+            return { ...state, currentResource: action.payload }
         default:
             return state
     }

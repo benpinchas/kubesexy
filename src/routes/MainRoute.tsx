@@ -1,10 +1,10 @@
 import React, { FunctionComponent } from "react";
-import Main from "../components/layout/Main";
-import SideBar from "../components/layout/SideBar";
+import SideBar from "../components/Sidebar";
 import styled from "styled-components"
 
 import { useSelector } from 'react-redux';
 import { currentResourceSelector } from '../store/app-state/app-state-selectors';
+import ResourceDashboard from "../components/ResourceDashboard";
 
 
 interface Props {
@@ -17,14 +17,10 @@ const MainRoute: FunctionComponent<Props> = () => {
     return (
         <StyledContainer className="route">
             <Left>
-                <SideBar>
-                    <div>{currentResource} List</div>
-                </SideBar>
+                <SideBar />
             </Left>
             <Right>
-                <Main>
-                    <div>Pod dashboard</div>
-                </Main>
+                <ResourceDashboard />
             </Right>
         </StyledContainer>
     );
@@ -37,11 +33,13 @@ const StyledContainer = styled.div`
 `
 
 const Left = styled.div`
-    border: 1px solid red;
+    background-color: #fff9e0;
+    border-right: 5px solid #fff59d;
+    border-left: 5px solid #fff59d;
     width: 300px;
 `
 
 const Right = styled.div`
-    border: 1px solid red;
+    background-color: #fffde7;
     flex-grow: 1;
 `
