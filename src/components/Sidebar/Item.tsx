@@ -28,5 +28,6 @@ const StyledContainer = styled.div`
     border-bottom: 5px solid #fff59d;
     
     background-color: ${(props: StyledContainerProps) => props.isSelected ? "#c8e6c9" : "none"};
-    font-weight: ${(props: StyledContainerProps) => props.isSelected ? "bold" : "unset"};
+
+    font-weight: ${(props: StyledContainerProps) => props.isSelected ? "500" : "400"};
 `
