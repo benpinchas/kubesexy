@@ -17,6 +17,11 @@ const SideBar: FunctionComponent<Props> = () => {
     const resources = useMemo(() => {
         return [
             {
+                type: "label",
+                content: "💪 Workloads"
+            },
+            {
+                "isFirst": true,
                 "resourceId": "POD",
                 "formattedName": "Pods",
             },
@@ -27,7 +32,22 @@ const SideBar: FunctionComponent<Props> = () => {
             {
                 "resourceId": "REPLICA_SET",
                 "formattedName": "ReplicaSets",
-            }
+            },
+
+            {
+                type: "label",
+                content: "📝 Configuration"
+            },
+            {
+                "isFirst": true,
+                "resourceId": "FOO",
+                "formattedName": "Foo",
+            },
+            {
+                "resourceId": "BAR",
+                "formattedName": "Bar",
+            },
+
         ]
     }, [])
 
@@ -35,22 +55,29 @@ const SideBar: FunctionComponent<Props> = () => {
 
     const currentResource = useSelector(currentResourceSelector)
 
-    const onClick = (resourceId: string) => {
+    const onItemClick = (resourceId: string) => {
         dispatch(switchCurrentResource(resourceId))
     }
 
     return (
         <div>
-            <StyledLabel>Workloads</StyledLabel>
             <StyledList>
                 {
                     resources.map(
-                        (resource, idx) => <Item
-                            key={resource.resourceId}
-                            resource={resource}
-                            onClick={onClick}
-                            isFirst={idx === 0}
-                            isSelected={currentResource === resource.resourceId} />)
+                        (resource, idx) => {
+                            if (resource.type === "label") {
+                                return <StyledLabel> {resource.content} </StyledLabel>
+                            }
+
+                            return <Item
+                                key={resource.resourceId}
+                                resource={resource}
+                                onClick={onItemClick}
+                                isFirst={resource.isFirst}
+                                isSelected={currentResource === resource.resourceId} />
+
+
+                        })
                 }
             </StyledList>
         </div>

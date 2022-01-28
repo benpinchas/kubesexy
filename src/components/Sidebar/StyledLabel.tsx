@@ -1,7 +1,9 @@
 import styled from "styled-components"
 
 const StyledLabel = styled.h4`
+    user-select: none;
     font-weight: 600;
-    margin: 10px 0px;
+    padding: 10px;
+    margin-top: 10px
 `
 export default StyledLabel

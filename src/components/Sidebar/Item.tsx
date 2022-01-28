@@ -22,6 +22,7 @@ interface StyledContainerProps {
 }
 const StyledContainer = styled.div`
     cursor: pointer;
+    user-select: none;
     padding: 10px 0px;
     padding-left: 8px;
     border-top:  ${(props: StyledContainerProps) => props.isFirst ? "5px solid #f4ecab" : "none"};
