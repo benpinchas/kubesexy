@@ -1,14 +1,10 @@
 import { useEffect } from 'react';
-import Main from './components/layout/Main';
+import MainRoute from './routes/MainRoute';
 
 function App() {
-
-  useEffect(() => {
-  }, [])
-
   return (
     <div className="App">
-      <Main />
+      <MainRoute />
     </div>
   );
 }

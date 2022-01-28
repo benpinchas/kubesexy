@@ -1,11 +1,16 @@
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent, ReactChild, ReactChildren } from "react";
 interface Props {
-
+    children: ReactChild
 }
 
-const SideBar: FunctionComponent<Props> = () => {
+const SideBar: FunctionComponent<Props> = ({ children }) => {
     return (
-        <main>SideBar cmp</main>
+        <main>
+            <p>SideBar cmp</p>
+
+            {children}
+
+        </main>
     );
 }
 

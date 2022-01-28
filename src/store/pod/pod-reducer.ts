@@ -1,6 +1,8 @@
 
 const initState = {
-    pods: []
+    pods: [],
+    isLoading: false,
+    error: null
 }
 
 export default (state = initState, action) => {
@@ -12,5 +14,4 @@ export default (state = initState, action) => {
         default:
             return state
     }
-    return state;
 }

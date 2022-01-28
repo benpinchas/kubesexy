@@ -1,11 +1,14 @@
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent, ReactChild } from "react";
 interface Props {
-
+    children: ReactChild
 }
 
-const Main: FunctionComponent<Props> = () => {
+const Main: FunctionComponent<Props> = ({ children }) => {
     return (
-        <main>Main cmp</main>
+        <main>
+            <p>Main cmp</p>
+            {children}
+        </main>
     );
 }
 
