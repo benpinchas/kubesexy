@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
-import { currentResourceSelector } from "../store/app-state/app-state-selectors";
+import { currentResourceSelector } from "../../store/app-state/app-state-selectors";
 
 interface Props {
 
