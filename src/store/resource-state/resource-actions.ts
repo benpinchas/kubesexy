@@ -1,3 +1,4 @@
+import { fetchDeployments, fetchPods } from "../../services/k8s-service"
 import { currentResourceSelector } from "./resource-selectors"
 
 export const switchCurrentResource = (identifier: string) => ({
@@ -10,9 +11,9 @@ export const fetchItemsRequest = (query?: string) => {
         const selectedResource = currentResourceSelector(getState())
         let items = [];
         if (selectedResource === "POD") {
-            items = [{}, {}]
+            items = await fetchPods()
         } else if (selectedResource === "DEPLOYMENT") {
-            items = [{}]
+            items = await fetchDeployments()
         }
         dispatch(fetchItemsSuccess(items))
     }

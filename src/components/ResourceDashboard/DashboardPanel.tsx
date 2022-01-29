@@ -8,7 +8,7 @@ export default () => {
     return (
         <div>
             {
-                items.map(item => <ResourceItem />)
+                items.map(item => <ResourceItem key={item.metadata.uid} item={item} />)
             }
         </div>
     )

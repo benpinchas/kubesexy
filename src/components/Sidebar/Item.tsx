@@ -8,8 +8,9 @@ const Item = ({ item, onClick, isFirst, isSelected }) => {
             onClick={() => onClick(item.resourceId)}
             isSelected={isSelected}
             isFirst={isFirst}>
-            {item.formattedName}
-        </StyledContainer>)
+            {item.formattedName} {isSelected && <span>👀</span>}
+        </StyledContainer>
+    )
 }
 
 export default Item
@@ -23,8 +24,13 @@ const StyledContainer = styled.div`
     user-select: none;
     padding: 10px 0px;
     padding-left: 8px;
+    padding-right: 8px;
     border-top:  ${(props: StyledContainerProps) => props.isFirst ? "5px solid #f4ecab" : "none"};
     border-bottom: 5px solid #fff59d;
     
     background-color: ${(props: StyledContainerProps) => props.isSelected ? "#c8e6c9" : "none"};
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 `
