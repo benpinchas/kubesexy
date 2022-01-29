@@ -1,2 +1,4 @@
+
 export const themeSelector = (state) => state.appStateReducer.theme
-export const currentResourceSelector = (state) => state.appStateReducer.currentResource
+
+export const currentAPIAddressSelector = (state) => state.appStateReducer.clusters.current

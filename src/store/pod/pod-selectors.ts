@@ -1,1 +1,0 @@
-export const podsSelector = (state) => state.podReducer.pods;

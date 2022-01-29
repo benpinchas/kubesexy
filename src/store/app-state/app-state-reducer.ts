@@ -1,14 +1,25 @@
 const initState = {
+    inited: false,
     theme: "LIGHT",
-    currentResource: "POD"
+    namespaces: {
+        list: ["default"],
+        current: "default"
+    },
+    clusters: {
+        list: [],
+        current: "127.0.0.1:8001"
+    }
 }
 
 export default (state = initState, action) => {
     switch (action.type) {
+        case "INIT_APP_SUCCESS":
+            return {
+                ...state,
+                inited: true
+            } // debt
         case 'TOGGLE_THEME':
-            return { ...state, theme: state.theme == "LIGHT"? "DARK" : "LIGHT" }
-        case 'SWITCH_CURRENT_RESOURCE':
-            return { ...state, currentResource: action.payload }
+            return { ...state, theme: state.theme == "LIGHT" ? "DARK" : "LIGHT" }
         default:
             return state
     }

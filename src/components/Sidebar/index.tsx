@@ -1,11 +1,11 @@
 import React, { FunctionComponent, ReactChild, ReactChildren, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
-import { switchCurrentResource } from "../../store/app-state/app-state-actions";
-import { currentResourceSelector } from "../../store/app-state/app-state-selectors";
+
+import { switchCurrentResource } from "../../store/resource-state/resource-actions";
+import { currentResourceSelector } from "../../store/resource-state/resource-selectors";
 import Item from "./Item";
 import StyledLabel from "./StyledLabel";
-import StyledList from "./StyledList";
 
 
 interface Props {
@@ -14,7 +14,7 @@ interface Props {
 
 const SideBar: FunctionComponent<Props> = () => {
 
-    const resources = useMemo(() => {
+    const items = useMemo(() => {
         return [
             {
                 type: "label",
@@ -61,29 +61,46 @@ const SideBar: FunctionComponent<Props> = () => {
 
     return (
         <div>
-            <StyledList>
+            <Top>
+                kubesexy 🕺
+            </Top>
+            <Middle>
                 {
-                    resources.map(
-                        (resource, idx) => {
-                            if (resource.type === "label") {
-                                return <StyledLabel> {resource.content} </StyledLabel>
+                    items.map(
+                        (item, idx) => {
+                            if (item.type === "label") {
+                                return <StyledLabel key={item.content}> {item.content} </StyledLabel>
                             }
 
                             return <Item
-                                key={resource.resourceId}
-                                resource={resource}
+                                key={item.resourceId}
+                                item={item}
                                 onClick={onItemClick}
-                                isFirst={resource.isFirst}
-                                isSelected={currentResource === resource.resourceId} />
+                                isFirst={item.isFirst}
+                                isSelected={currentResource === item.resourceId} />
 
 
                         })
                 }
-            </StyledList>
+            </Middle>
         </div>
     );
 }
 
+const Top = styled.div`
+    height: 60px;
+
+    padding-left: 8px;
+    padding-top: 8px;
+    font-size: 22px;
+    font-weight: 300;
+`
+
+const Middle = styled.div`
+`
+const Bottom = styled.div`
+    
+`
 
 
 

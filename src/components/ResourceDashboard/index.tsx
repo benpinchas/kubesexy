@@ -1,17 +1,16 @@
 import React, { FunctionComponent } from "react";
-import styled from "styled-components";
 import DashboardController from "./DashboardController";
+import DashboardPanel from "./DashboardPanel";
 
 interface Props {
 }
 
-const ResourceDashboard: FunctionComponent<Props> = () => {
-    return (
-        <div>
-            <DashboardController />
-        </div>
-    );
-}
+const ResourceDashboard: FunctionComponent<Props> = () => (
+    <div>
+        <DashboardController />
+        <DashboardPanel />
+    </div>
+)
 
 
 export default ResourceDashboard;

@@ -1,16 +1,14 @@
-import { useDispatch } from "react-redux";
 import styled from "styled-components";
-import { switchCurrentResource } from "../../store/app-state/app-state-actions";
 
-const Item = ({ resource, onClick, isFirst, isSelected }) => {
+const Item = ({ item, onClick, isFirst, isSelected }) => {
 
 
     return (
         <StyledContainer
-            onClick={() => onClick(resource.resourceId)}
+            onClick={() => onClick(item.resourceId)}
             isSelected={isSelected}
             isFirst={isFirst}>
-            {resource.formattedName}
+            {item.formattedName}
         </StyledContainer>)
 }
 

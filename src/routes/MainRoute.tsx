@@ -1,10 +1,11 @@
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent, useEffect } from "react";
 import SideBar from "../components/Sidebar";
 import styled from "styled-components"
 
-import { useSelector } from 'react-redux';
-import { currentResourceSelector } from '../store/app-state/app-state-selectors';
 import ResourceDashboard from "../components/ResourceDashboard";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchItemsRequest } from "../store/resource-state/resource-actions";
+import { currentResourceSelector } from "../store/resource-state/resource-selectors";
 
 
 interface Props {
@@ -13,7 +14,10 @@ interface Props {
 
 const MainRoute: FunctionComponent<Props> = () => {
     const currentResource = useSelector(currentResourceSelector)
-
+    const d = useDispatch()
+    useEffect(() => {
+        d(fetchItemsRequest())
+    }, [currentResource])
     return (
         <StyledContainer className="route">
             <Left>

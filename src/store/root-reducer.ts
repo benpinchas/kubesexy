@@ -1,10 +1,11 @@
 import { combineReducers } from 'redux'
-import podReducer from './pod/pod-reducer'
 import appStateReducer from "./app-state/app-state-reducer"
+import resourceReducer from "./resource-state/resource-reducer"
+
 
 const rootReducer = combineReducers({
-   podReducer,
-   appStateReducer
+   appStateReducer,
+   resourceReducer
 })
 
 export default rootReducer
