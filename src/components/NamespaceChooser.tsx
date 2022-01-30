@@ -4,7 +4,8 @@ import styled from "styled-components"
 import { switchCurrentNamespace } from "../store/namespace-state/namespace-actions"
 import { currentNamespaceSelector, namespacesSelector } from "../store/namespace-state/namespace-selectors"
 
-function useOutsideAlerter(ref, cb) {
+// Took it from https://stackoverflow.com/questions/32553158/detect-click-outside-react-component
+function useDetectOutsideClick(ref, cb) {
     useEffect(() => {
         /**
          * Alert if clicked on outside of element
@@ -41,12 +42,12 @@ export default () => {
     }
 
     const wrapperRef = useRef(null);
-    // useOutsideAlerter(wrapperRef, closeList);
+    useDetectOutsideClick(wrapperRef, closeList);
 
     let jsx = null
     if (isOpen) {
         jsx = (
-            <StyledList>
+            <StyledList ref={wrapperRef}>
                 {namespaces.map(namespace => {
                     const isSelected = current === namespace
                     return <StyledItem
@@ -67,7 +68,7 @@ export default () => {
     }
 
     return (
-        <StyledContainer ref={wrapperRef}>
+        <StyledContainer>
             {jsx}
         </StyledContainer>
     )
