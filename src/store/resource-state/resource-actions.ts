@@ -1,4 +1,5 @@
 import { fetchDeployments, fetchPods } from "../../services/k8s-service"
+import { currentNamespaceSelector } from "../namespace-state/namespace-selectors"
 import { currentResourceSelector } from "./resource-selectors"
 
 export const switchCurrentResource = (identifier: string) => ({
@@ -8,12 +9,14 @@ export const switchCurrentResource = (identifier: string) => ({
 
 export const fetchItemsRequest = (query?: string) => {
     return async (dispatch, getState) => {
-        const selectedResource = currentResourceSelector(getState())
+        const state = getState()
+        const currentNamespace = currentNamespaceSelector(state)
+        const selectedResource = currentResourceSelector(state)
         let items = [];
         if (selectedResource === "POD") {
-            items = await fetchPods()
+            items = await fetchPods(currentNamespace)
         } else if (selectedResource === "DEPLOYMENT") {
-            items = await fetchDeployments()
+            items = await fetchDeployments(currentNamespace)
         }
         dispatch(fetchItemsSuccess(items))
     }

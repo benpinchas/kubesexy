@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import styled from "styled-components"
 import { switchCurrentNamespace } from "../store/namespace-state/namespace-actions"
-import { currentNamespaceSelector } from "../store/namespace-state/namespace-selectors"
+import { currentNamespaceSelector, namespacesSelector } from "../store/namespace-state/namespace-selectors"
 
 function useOutsideAlerter(ref, cb) {
     useEffect(() => {
@@ -28,7 +28,7 @@ function useOutsideAlerter(ref, cb) {
 export default () => {
     const dispatch = useDispatch()
     const current = useSelector(currentNamespaceSelector)
-    const namespaces = ["default", "my-namespace", "kuberne", "kube-node-lease", "kube-system", "kube-public"]
+    const namespaces = useSelector(namespacesSelector)
     const [isOpen, setIsOpen] = useState(false)
 
     const openList = () => setIsOpen(true)
@@ -41,7 +41,7 @@ export default () => {
     }
 
     const wrapperRef = useRef(null);
-    useOutsideAlerter(wrapperRef, closeList);
+    // useOutsideAlerter(wrapperRef, closeList);
 
     let jsx = null
     if (isOpen) {
@@ -81,6 +81,7 @@ const StyledContainer = styled.div`
 
 const StyledList = styled.ul`
     border: 1px solid red;
+    position: relative; // TODO
 `
 
 const StyledItem = styled.li`

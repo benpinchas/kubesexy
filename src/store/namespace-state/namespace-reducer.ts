@@ -11,6 +11,11 @@ export default (state = initState, action) => {
                 ...state, 
                 current: action.payload 
             }
+        case "FETCH_NAMESPACES_SUCCESS":
+            return {
+                ...state,
+                items: action.payload
+            }
         default:
             return state
     }

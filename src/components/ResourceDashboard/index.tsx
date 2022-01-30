@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from "react";
+import styled from "styled-components";
 import DashboardController from "../DashboardController";
 import DashboardPanel from "./DashboardPanel";
 
@@ -6,11 +7,14 @@ interface Props {
 }
 
 const ResourceDashboard: FunctionComponent<Props> = () => (
-    <div>
+    <StyledContainer>
         <DashboardController />
         <DashboardPanel />
-    </div>
+    </StyledContainer>
 )
 
 
 export default ResourceDashboard;
+
+const StyledContainer = styled.div`
+`

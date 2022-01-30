@@ -88,10 +88,10 @@ const SideBar: FunctionComponent<Props> = () => {
 }
 
 const Top = styled.div`
-    height: 60px;
+    height: 50px;
 
     padding-left: 8px;
-    padding-top: 8px;
+    padding-top: 18px;
     font-size: 22px;
     font-weight: 300;
 `

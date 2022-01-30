@@ -6,6 +6,7 @@ import ResourceDashboard from "../components/ResourceDashboard";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchItemsRequest } from "../store/resource-state/resource-actions";
 import { currentResourceSelector } from "../store/resource-state/resource-selectors";
+import { fetchNamespacesRequest } from "../store/namespace-state/namespace-actions";
 
 
 interface Props {
@@ -14,9 +15,10 @@ interface Props {
 
 const MainRoute: FunctionComponent<Props> = () => {
     const currentResource = useSelector(currentResourceSelector)
-    const d = useDispatch()
+    const dispatch = useDispatch()
     useEffect(() => {
-        d(fetchItemsRequest())
+        dispatch(fetchNamespacesRequest())
+        dispatch(fetchItemsRequest())
     }, [currentResource])
     return (
         <StyledContainer className="route">
