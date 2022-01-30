@@ -7,12 +7,6 @@ export const toggleTheme = () => ({
 })
 
 
-export const switchCurrentNamespace = (namespace: string) => ({
-    type: "SWITCH_CURRENT_NAMESPACE",
-    payload: namespace
-})
-
-
 export const initAppRequest = () => {
     return async (dispatch) => {
         // get information from localStorage

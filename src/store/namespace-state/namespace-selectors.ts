@@ -1,0 +1,1 @@
+export const currentNamespaceSelector = (state) => state.namespaceReducer.current

@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react";
-import { useSelector } from "react-redux";
 import styled from "styled-components";
 import StyledInput from "../common/StyledInput";
+import NamespaceChooser from "../NamespaceChooser";
 
 interface Props {
 
@@ -12,7 +12,7 @@ const DashboardController: FunctionComponent<Props> = () => {
     return (
         <StyledContainer>
             <Left>
-                Left
+                <NamespaceChooser />
             </Left>
             <Seperator />
             <Center>
