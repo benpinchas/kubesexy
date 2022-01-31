@@ -31,7 +31,7 @@ export default DashboardController;
 
 const StyledContainer = styled.div`
     background-color: lightgrey;
-    padding: 10px;
+    padding: 0 10px;
 
     display: flex;
     align-items: center;

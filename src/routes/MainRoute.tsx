@@ -39,13 +39,13 @@ const StyledContainer = styled.div`
 `
 
 const Left = styled.div`
-    background-color: #fff9e0;
+    background-color: #fffef7;
     border-right: 1px solid lightgrey;
     border-left: 1px solid lightgrey;
     width: 300px;
 `
 
 const Right = styled.div`
-    background-color: #fffde7;
+    background-color: #fcfcfc;
     flex-grow: 1;
 `
