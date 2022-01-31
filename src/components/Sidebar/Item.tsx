@@ -25,12 +25,14 @@ const StyledContainer = styled.div`
     padding: 10px 0px;
     padding-left: 8px;
     padding-right: 8px;
-    border-top:  ${(props: StyledContainerProps) => props.isFirst ? "5px solid #f4ecab" : "none"};
-    border-bottom: 5px solid #fff59d;
+    border-top:  ${(props: StyledContainerProps) => props.isFirst ? "1px solid lightgray" : "none"};
+    border-bottom: 1px solid lightgray;;
     
     background-color: ${(props: StyledContainerProps) => props.isSelected ? "#c8e6c9" : "none"};
 
+
+    background-image: linear-gradient(beige);
+
     display: flex;
     justify-content: space-between;
-    align-items: center;
 `

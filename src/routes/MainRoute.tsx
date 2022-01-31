@@ -40,8 +40,8 @@ const StyledContainer = styled.div`
 
 const Left = styled.div`
     background-color: #fff9e0;
-    border-right: 5px solid #fff59d;
-    border-left: 5px solid #fff59d;
+    border-right: 1px solid lightgrey;
+    border-left: 1px solid lightgrey;
     width: 300px;
 `
 
