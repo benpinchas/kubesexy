@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  creationTimestamp: "2022-01-30T13:45:28Z"
+  labels:
+    kubernetes.io/metadata.name: kube-node-lease
+  name: kube-node-lease
+  resourceVersion: "34"
+  uid: 883f5983-55b1-4390-bfb1-4269b0a04d7a
+spec:
+  finalizers:
+  - kubernetes
+status:
+  phase: Active

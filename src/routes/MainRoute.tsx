@@ -7,6 +7,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchItemsRequest } from "../store/resource-state/resource-actions";
 import { currentResourceSelector } from "../store/resource-state/resource-selectors";
 import { fetchNamespacesRequest } from "../store/namespace-state/namespace-actions";
+import TabsController from "../components/TabsController";
+import { currentTabSelector } from "../store/tabs-state/tabs-state-selectors";
 
 
 interface Props {
@@ -20,13 +22,19 @@ const MainRoute: FunctionComponent<Props> = () => {
         dispatch(fetchNamespacesRequest())
         dispatch(fetchItemsRequest())
     }, [currentResource])
+
+    const currentTab = useSelector(currentTabSelector)
+
     return (
         <StyledContainer className="route">
             <Left>
                 <SideBar />
             </Left>
             <Right>
-                <ResourceDashboard />
+                <TabsController />
+                {
+                    currentTab === null? <ResourceDashboard /> : "Comming soon.."
+                }
             </Right>
         </StyledContainer>
     );

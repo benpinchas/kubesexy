@@ -1,14 +1,24 @@
 const initState = {
     inited: false,
     theme: "LIGHT",
-    namespaces: {
-        list: ["default"],
-        current: "default"
+    tabs: {
+        list: [
+            {
+                id: "LOG-TAB:my-pod",
+                type: "LOG-TAB",
+                resourceId: "my-pod",
+                resourceType: "POD"
+            },
+            {
+                id: "EDITING-TAB:my-depl12",
+                type: "EDITING-TAB",
+                resourceId: "my-depl12",
+                resourceType: "DEPLOYMENT"
+            }
+        ],
+        current: null
     },
-    clusters: {
-        list: [],
-        current: "127.0.0.1:8001"
-    }
+
 }
 
 export default (state = initState, action) => {
@@ -20,6 +30,14 @@ export default (state = initState, action) => {
             } // debt
         case 'TOGGLE_THEME':
             return { ...state, theme: state.theme == "LIGHT" ? "DARK" : "LIGHT" }
+        case "SWITCH_TAB":
+            return {
+                ...state,
+                tabs: {
+                   ...state.tabs,
+                   current: action.payload 
+                }
+            }
         default:
             return state
     }
