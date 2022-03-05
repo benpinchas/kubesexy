@@ -47,7 +47,7 @@ const StyledContainer = styled.div`
 `
 
 const Left = styled.div`
-    background-color: #fffef7;
+    background-color: #f5f6f8;
     border-right: 1px solid lightgrey;
     border-left: 1px solid lightgrey;
     width: 300px;
